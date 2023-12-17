@@ -13,7 +13,6 @@ class Program
         List<String> availableChoices = new List<String> {"1", "2", "3", "q", "Q"};
         String choice = mainMenu.getFirstMenu();
         IWebDriver driver;
-
         while (!availableChoices.Contains(choice))
         {
             choice = mainMenu.getRepeatingMenu();
@@ -52,6 +51,10 @@ class Program
             Console.WriteLine(endresult);
             Console.Write("Enter your choice: ");
             choice = Console.ReadLine();
+            while (!availableChoices.Contains(choice))
+            {
+                choice = mainMenu.getRepeatingMenu();
+            }
         }
         Console.WriteLine("Quitting the application...");
         System.Threading.Thread.Sleep(2000);

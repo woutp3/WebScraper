@@ -14,7 +14,7 @@ namespace WebApp
         public IWebDriver setDriver()
         {
             // Giving the driver options
-            Console.WriteLine("Searching ICTjobs....");
+            Console.WriteLine("Setting up the browser....");
             var chromeOptions = new ChromeOptions();
             chromeOptions.AddArguments("--headless", "--silent", "log-levels=3");
             var chromeDriverService = ChromeDriverService.CreateDefaultService();
