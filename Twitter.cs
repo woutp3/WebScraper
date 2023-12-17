@@ -19,7 +19,7 @@ namespace WebApp
 
 
         public void setUrl(String searchterm) {
-            Console.WriteLine("Creatig the URL....");
+            Console.WriteLine("Creating the URL....");
             // Create the actual URL
             String twitterSearchterm = searchterm.Replace(" ", "%20");
             url = ($"https://twitter.com/search?q={twitterSearchterm}&src=typed_query&f=live");

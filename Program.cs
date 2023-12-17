@@ -8,7 +8,7 @@ class Program
 {
     static void Main()
     {
-        mainMenu mainMenu = new mainMenu();
+        MainMenu mainMenu = new MainMenu();
 
         List<String> availableChoices = new List<String> {"1", "2", "3", "q", "Q"};
         String choice = mainMenu.getFirstMenu();
@@ -24,7 +24,7 @@ class Program
             Console.WriteLine(searchTerm);
             WebDriver webDriver = new WebDriver();
             driver = webDriver.setDriver();
-            String endresult = "";
+            String endresult;
             if (choice.Equals("1"))
             {
                 Youtube youtube = new Youtube();
@@ -53,7 +53,7 @@ class Program
             Console.Write("Enter your choice: ");
             choice = Console.ReadLine();
         }
-        Console.WriteLine("Quiting the application...");
+        Console.WriteLine("Quitting the application...");
         System.Threading.Thread.Sleep(2000);
     }
 }

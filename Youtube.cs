@@ -18,10 +18,10 @@ namespace WebApp
         private String url = "";
         private String videoString = "";
         public void setUrl(String searchterm) {
-            Console.WriteLine("Creatig the URL....");
+            Console.WriteLine("Creating the URL....");
             //Create the actual URL
             String ytSearchTerm = searchterm.Replace(" ", "+");
-            url = ($"https://youtube.com/results?search_query={searchterm}&sp=CAI%253D");
+            url = ($"https://youtube.com/results?search_query={ytSearchTerm}&sp=CAI%253D");
         }
 
         public String getUrl()
