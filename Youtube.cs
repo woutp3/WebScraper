@@ -10,7 +10,6 @@ namespace WebApp
 {
     internal class Youtube
     {
-        private IWebDriver driver;
         private List<String> titleList = new List<String>();
         private List<String> linkList = new List<String>();
         private List<String> uploaderList = new List<String>();
@@ -18,17 +17,6 @@ namespace WebApp
         private String endresult = "";
         private String url = "";
         private String videoString = "";
-        public void setDriver() {
-            Console.WriteLine("Setting up the driver....");
-            var chromeOptions = new ChromeOptions();
-            chromeOptions.AddArguments(/*"--headless", */"--silent", "log-levels=3");
-            var chromeDriverService = ChromeDriverService.CreateDefaultService();
-            chromeDriverService.HideCommandPromptWindow = true;
-            chromeDriverService.SuppressInitialDiagnosticInformation = true;
-            chromeDriverService.EnableVerboseLogging = true;
-            // Set up the WebDriver
-            driver = new ChromeDriver(chromeOptions);
-        }
         public void setUrl(String searchterm) {
             Console.WriteLine("Creatig the URL....");
             //Create the actual URL
@@ -41,7 +29,7 @@ namespace WebApp
             return url;
         }
 
-        public void setVideo()
+        public void setVideo(IWebDriver driver)
         {
             Console.WriteLine("Getting the video\'s....");
             // Open the YouTube page

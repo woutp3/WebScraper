@@ -10,7 +10,6 @@ namespace WebApp
 {
     internal class Twitter
     {
-        private IWebDriver driver;
         private List<String> descriptionList = new List<String>();
         private List<String> tweeterList = new List<String>();
         private List<String> likeList = new List<String>();
@@ -18,19 +17,6 @@ namespace WebApp
         private String tweetString = "";
         private String endresult = "";
 
-        public void setDriver()
-        {
-            // Giving the driver options
-            Console.WriteLine("Setting up the driver....");
-            var chromeOptions = new ChromeOptions();
-            chromeOptions.AddArguments(/*"--headless", */"--silent", "log-levels=3");
-            var chromeDriverService = ChromeDriverService.CreateDefaultService();
-            chromeDriverService.HideCommandPromptWindow = true;
-            chromeDriverService.SuppressInitialDiagnosticInformation = true;
-            chromeDriverService.EnableVerboseLogging = true;
-            // Set up the WebDriver
-            driver = new ChromeDriver(chromeOptions);
-        }
 
         public void setUrl(String searchterm) {
             Console.WriteLine("Creatig the URL....");
@@ -43,7 +29,7 @@ namespace WebApp
             return url;
         }
 
-        public void setTweet()
+        public void setTweet(IWebDriver driver)
         {
             Console.WriteLine("Logging in....");
             // Open the Twitter page

@@ -12,6 +12,7 @@ class Program
 
         List<String> availableChoices = new List<String> {"1", "2", "3", "q", "Q"};
         String choice = mainMenu.getFirstMenu();
+        IWebDriver driver;
 
         while (!availableChoices.Contains(choice))
         {
@@ -21,31 +22,30 @@ class Program
         {
             String searchTerm = mainMenu.getSearchTerm();
             Console.WriteLine(searchTerm);
+            WebDriver webDriver = new WebDriver();
+            driver = webDriver.setDriver();
             String endresult = "";
             if (choice.Equals("1"))
             {
                 Youtube youtube = new Youtube();
-                youtube.setDriver();
                 youtube.setUrl(searchTerm);
-                youtube.setVideo();
+                youtube.setVideo(driver);
                 youtube.setVideoData();
                 endresult = youtube.getVideoData();
             }
             else if (choice.Equals("2"))
             {
                 ICTjobs job = new ICTjobs();
-                job.setDriver();
                 job.setUrl(searchTerm);
-                job.setJob();
+                job.setJob(driver);
                 job.setJobData();
                 endresult = job.getJobData();
             }
             else
             {
                 Twitter twitter = new Twitter();
-                twitter.setDriver();
                 twitter.setUrl(searchTerm);
-                twitter.setTweet();
+                twitter.setTweet(driver);
                 twitter.setTweetData();
                 endresult = twitter.getTweetData();
             }

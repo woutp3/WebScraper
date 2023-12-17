@@ -11,7 +11,6 @@ namespace WebApp
 {
     internal class ICTjobs
     {
-        private IWebDriver driver;
         private List<String> titleList = new List<String>();
         private List<String> companyList = new List<String>();
         private List<String> locationList = new List<String>();
@@ -20,19 +19,6 @@ namespace WebApp
         private String url = "";
         private String jobString = "";
         private String endresult = "";
-        public void setDriver()
-        {
-            // Giving the driver options
-            Console.WriteLine("Searching ICTjobs....");
-            var chromeOptions = new ChromeOptions();
-            chromeOptions.AddArguments(/*"--headless", */"--silent", "log-levels=3");
-            var chromeDriverService = ChromeDriverService.CreateDefaultService();
-            chromeDriverService.HideCommandPromptWindow = true;
-            chromeDriverService.SuppressInitialDiagnosticInformation = true;
-            chromeDriverService.EnableVerboseLogging = true;
-            // Set up the WebDriver
-            driver = new ChromeDriver(chromeOptions);
-        }
         public void setUrl(String searchterm)
         {
             Console.WriteLine("Creating the URL....");
@@ -44,7 +30,7 @@ namespace WebApp
         public String getUrl() { 
             return url; 
         }
-        public void setJob()
+        public void setJob(IWebDriver driver)
         {
             Console.WriteLine("Getting the job\'s....");
             // Open the ICTJobs page
